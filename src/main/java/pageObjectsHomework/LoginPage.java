@@ -17,12 +17,18 @@ public class LoginPage {
     private By password = By.id("password");
     private By clickLoginButton = By.id("login-button");
 
-    private void setUsername() {
-        driver.findElement(By.id("user-name"));
+    public void authorize(String login, String pw) {
+        driver.findElement(username).sendKeys(login);
+        driver.findElement(password).sendKeys(pw);
+        driver.findElement(clickLoginButton).click();
     }
 
-    private void setPassword() {
-        driver.findElement(By.id("password"));
+    public WebElement getUsernameElement() {
+        return driver.findElement(username);
+    }
+
+    public void setUserName(String login) {
+        driver.findElement(username).sendKeys(login);
     }
 
     public void clickOnLoginButton() {
